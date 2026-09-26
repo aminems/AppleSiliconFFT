@@ -1,0 +1,56 @@
+================================================================================================
+m6-cpu: vDSP_fft_zop N=4096, batch 16/thread, 3.0s per config; per-thread GFLOPS + CPU ids seen
+================================================================================================
+  T= 1 UI  total   203.0 GF | per-thread: 203.0
+        thr0: cpu6:78246 cpu7:76266 cpu5:128 cpu8:102
+  T= 2 UI  total   214.2 GF | per-thread: 107.1 107.1
+        thr0: cpu6:41277 cpu7:39981 cpu8:251 cpu9:177
+        thr1: cpu7:41245 cpu6:40120 cpu8:247 cpu9:73
+  T= 3 UI  total   196.3 GF | per-thread:  65.5  65.5  65.4
+        thr0: cpu6:18741 cpu7:14448 cpu8:7619 cpu9:5788
+        thr1: cpu7:18875 cpu6:15910 cpu8:7849 cpu9:4474
+        thr2: cpu7:17134 cpu6:15992 cpu9:6413 cpu8:6029
+  T= 4 UI  total   205.2 GF | per-thread:  51.2  51.3  51.4  51.3
+        thr0: cpu6:10488 cpu7:9069 cpu9:7540 cpu10:5482
+        thr1: cpu7:10174 cpu6:8990 cpu9:7976 cpu10:5323
+        thr2: cpu6:11380 cpu7:9030 cpu9:7267 cpu8:5725
+        thr3: cpu7:11050 cpu6:8236 cpu9:7045 cpu10:5016
+  T= 6 UI  total   200.3 GF | per-thread:  33.4  33.5  33.4  33.3  33.3  33.3
+        thr0: cpu11:5703 cpu6:4590 cpu7:4317 cpu9:3706
+        thr1: cpu10:5037 cpu6:4759 cpu7:4190 cpu8:4103
+        thr2: cpu8:5145 cpu11:4631 cpu7:4352 cpu10:3967
+        thr3: cpu9:5003 cpu7:4945 cpu10:4206 cpu8:4157
+        thr4: cpu9:5413 cpu8:4537 cpu6:4519 cpu7:3911
+        thr5: cpu11:5152 cpu9:4218 cpu10:4160 cpu7:4131
+  T= 8 UI  total   253.0 GF | per-thread:  31.5  31.6  31.6  31.6  31.5  31.6  31.7  31.7
+        thr0: cpu7:3740 cpu6:3597 cpu10:3305 cpu8:3126
+        thr1: cpu7:3850 cpu10:3517 cpu8:3044 cpu9:3030
+        thr2: cpu11:4454 cpu7:3368 cpu10:3238 cpu6:3074
+        thr3: cpu9:4762 cpu10:3948 cpu6:3157 cpu11:3087
+        thr4: cpu6:3803 cpu11:3464 cpu10:3254 cpu9:3170
+        thr5: cpu8:4824 cpu7:3402 cpu9:2984 cpu6:2879
+        thr6: cpu11:4343 cpu8:3525 cpu6:3203 cpu7:3174
+        thr7: cpu10:3884 cpu6:3423 cpu8:3286 cpu9:3266
+  T=12 UI  total   248.2 GF | per-thread:  20.4  22.5  19.8  20.6  18.5  18.9  22.0  20.6  21.3  19.6  21.5  22.5
+        thr0: cpu7:3002 cpu6:2248 cpu11:1972 cpu10:1917
+        thr1: cpu8:3664 cpu11:3311 cpu7:2495 cpu6:1887
+        thr2: cpu10:2729 cpu7:2657 cpu11:2272 cpu6:1727
+        thr3: cpu10:2662 cpu11:2321 cpu8:2203 cpu6:2076
+        thr4: cpu9:2925 cpu7:2048 cpu11:1608 cpu10:1485
+        thr5: cpu6:2527 cpu7:2320 cpu8:2274 cpu10:1346
+        thr6: cpu6:3218 cpu9:2908 cpu10:2503 cpu11:2044
+        thr7: cpu9:3763 cpu6:2362 cpu8:1978 cpu11:1736
+        thr8: cpu9:2698 cpu11:2531 cpu10:2220 cpu6:2180
+        thr9: cpu7:2950 cpu8:2911 cpu10:2618 cpu6:1281
+        thr10: cpu8:3907 cpu10:2719 cpu6:2515 cpu9:1952
+        thr11: cpu11:4065 cpu6:2739 cpu9:2457 cpu7:2251
+  T= 1 BG  total    19.0 GF | per-thread:  19.0
+        thr0: cpu5:3261 cpu4:3131 cpu3:2463 cpu1:2327
+  T= 6 BG  total    18.3 GF | per-thread:   3.0   3.1   3.1   3.1   3.1   3.0
+        thr0: cpu4:440 cpu3:407 cpu5:397 cpu1:395
+        thr1: cpu2:442 cpu1:405 cpu4:394 cpu0:392
+        thr2: cpu4:462 cpu1:422 cpu0:385 cpu3:374
+        thr3: cpu5:432 cpu2:428 cpu1:375 cpu0:370
+        thr4: cpu3:448 cpu0:448 cpu5:403 cpu4:384
+        thr5: cpu5:510 cpu1:385 cpu2:376 cpu3:360
+================================================================================================

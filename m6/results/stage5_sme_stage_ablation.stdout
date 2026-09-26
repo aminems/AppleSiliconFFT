@@ -1,0 +1,25 @@
+# 2026-09-26T00:24:54Z quiet machine, AC
+stage ns=1 (ns per group of 4 butterflies x16 FFTs):
+  ld+mopa+st     24.8 ns/group
+  ld+mopa        16.6 ns/group
+  mopa+st        22.9 ns/group
+  ld+st          42.9 ns/group
+  mopa only      15.2 ns/group
+  ld only        42.9 ns/group
+  st only        15.9 ns/group
+stage ns=8 (ns per group of 4 butterflies x16 FFTs):
+  ld+mopa+st     68.5 ns/group
+  ld+mopa        17.9 ns/group
+  mopa+st        52.6 ns/group
+  ld+st          64.0 ns/group
+  mopa only      15.2 ns/group
+  ld only        42.9 ns/group
+  st only        35.2 ns/group
+stage ns=64 (ns per group of 4 butterflies x16 FFTs):
+  ld+mopa+st     86.8 ns/group
+  ld+mopa        23.5 ns/group
+  mopa+st        57.2 ns/group
+  ld+st          82.7 ns/group
+  mopa only      15.2 ns/group
+  ld only        42.9 ns/group
+  st only        32.8 ns/group

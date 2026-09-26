@@ -1,0 +1,64 @@
+========================================================================
+FFT Microbenchmark Harness — Apple Silicon GPU
+========================================================================
+Device:                    Apple M6
+Max threadgroup memory:    32768 bytes (32 KiB)
+Max threads/threadgroup:   MTLSize(width: 1024, height: 1024, depth: 1024)
+Unified memory:            true
+Recommended working set:   25559 MiB
+========================================================================
+
+── Benchmark 1: Threadgroup Memory Bandwidth ──────────────────────────
+
+  Sequential                      4.814 ms     871.3 GB/s
+  Strided (stride=N)              2.451 ms    1711.0 GB/s
+  Bank-conflict (stride=32)       1.234 ms    3399.2 GB/s
+
+── Benchmark 2: SIMD Shuffle Throughput ────────────────────────────────
+
+  float simd_shuffle              5.870 ms     279.1 Gshuffles/s    1116.5 GB/s
+  float2 simd_shuffle             9.565 ms     171.3 Gshuffles/s    1370.3 GB/s
+
+── Benchmark 3: Register ↔ Threadgroup Memory Copy ─────────────────────
+
+  64 threads x 16 floats          0.544 ms    1925.9 GB/s
+  128 threads x 16 floats         1.095 ms    1915.1 GB/s
+  256 threads x 16 floats         2.056 ms    2039.9 GB/s
+  512 threads x 16 floats         4.164 ms    2014.3 GB/s
+
+── Benchmark 4: Occupancy vs Register Pressure ─────────────────────────
+
+  ~8 GPRs  (1 float)              0.070 ms  maxThreads=1024  execWidth=32
+  ~32 GPRs (16 floats)            0.153 ms  maxThreads=1024  execWidth=32
+  ~64 GPRs (32 floats)            0.276 ms  maxThreads=1024  execWidth=32
+  ~128 GPRs (64 floats)           0.529 ms  maxThreads=1024  execWidth=32
+
+  Note: maxTotalThreadsPerThreadgroup reflects occupancy — lower values
+  indicate the compiler allocated more registers, reducing concurrent threads.
+
+── Benchmark 5: Optimal Thread Count Sweep ─────────────────────────────
+
+    32 threads x 256 elements    11.954 ms     35.09 GFLOPS (butterfly-like)
+    64 threads x 128 elements    11.005 ms     38.11 GFLOPS (butterfly-like)
+   128 threads x  64 elements     9.086 ms     46.16 GFLOPS (butterfly-like)
+   256 threads x  32 elements     4.892 ms     85.73 GFLOPS (butterfly-like)
+   512 threads x  16 elements     2.735 ms    153.34 GFLOPS (butterfly-like)
+  1024 threads x   8 elements     1.482 ms    283.02 GFLOPS (butterfly-like)
+
+========================================================================
+All benchmarks complete.
+
+To run individual benchmarks:
+  swift run FFTMicroBenchmarks 1          # Threadgroup memory bandwidth
+  swift run FFTMicroBenchmarks 2          # SIMD shuffle throughput
+  swift run FFTMicroBenchmarks 3          # Register-to-threadgroup copy
+  swift run FFTMicroBenchmarks 4          # Occupancy vs register pressure
+  swift run FFTMicroBenchmarks 5          # Optimal thread count sweep
+  swift run FFTMicroBenchmarks 6          # vDSP FFT baseline
+  swift run FFTMicroBenchmarks vdsp       # Same as 6
+  swift run FFTMicroBenchmarks 7          # Direct-matmul DFT (cblas_cgemm)
+  swift run FFTMicroBenchmarks 8          # Radix-8 cblas_sgemm (AMX route)
+  swift run FFTMicroBenchmarks amx-radix8 # Same as 8
+  swift run FFTMicroBenchmarks tgmem      # Same as 1
+  swift run FFTMicroBenchmarks shuffle     # Same as 2
+========================================================================

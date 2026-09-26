@@ -1,0 +1,10 @@
+# 2026-09-26T00:21:38Z 27.0 Now drawing from AC Power ; build: clang -O3 -mcpu=apple-m4
+# top:  16.5 claude
+# top:  12.3 claude
+peak: fp32 FMOPA 16x16 (512 flop) into 4 tiles, UI QoS, median of 5
+  T= 1     2280 GFLOPS total
+  T= 2     2261 GFLOPS total
+  T= 4     2215 GFLOPS total
+  T= 6     2311 GFLOPS total
+  T= 8     2804 GFLOPS total
+  T=12     3395 GFLOPS total

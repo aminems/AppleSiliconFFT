@@ -1,0 +1,14 @@
+# 2026-09-26T00:24:41Z 27.0 Now drawing from AC Power ; build: clang -O3 -mcpu=apple-m4
+# top: 151.2 mediaanalysisd
+# top:  20.4 textunderstandingd
+mt: T threads (UI QoS) each with its own batch; hot = 16 FFTs/thread, cold = 256 MiB total
+  N=  4096 T= 1 B/thr=   16 (    0.5 MiB tot) | SME   303.0 GF | vDSP   206.8 GF | x1.47
+  N=  4096 T= 2 B/thr=   16 (    1.0 MiB tot) | SME   298.8 GF | vDSP   215.1 GF | x1.39
+  N=  4096 T= 3 B/thr=   16 (    1.5 MiB tot) | SME   276.1 GF | vDSP   198.3 GF | x1.39
+  N=  4096 T= 4 B/thr=   16 (    2.0 MiB tot) | SME   279.5 GF | vDSP   207.5 GF | x1.35
+  N=  4096 T= 6 B/thr=   16 (    3.0 MiB tot) | SME   286.3 GF | vDSP   198.9 GF | x1.44
+  N=  4096 T= 1 B/thr= 8192 (  256.0 MiB tot) | SME   183.1 GF | vDSP   155.7 GF | x1.18
+  N=  4096 T= 2 B/thr= 4096 (  256.0 MiB tot) | SME   218.3 GF | vDSP   156.1 GF | x1.40
+  N=  4096 T= 3 B/thr= 2720 (  255.0 MiB tot) | SME   213.2 GF | vDSP   149.2 GF | x1.43
+  N=  4096 T= 4 B/thr= 2048 (  256.0 MiB tot) | SME   198.5 GF | vDSP   143.9 GF | x1.38
+  N=  4096 T= 6 B/thr= 1360 (  255.0 MiB tot) | SME   161.3 GF | vDSP   129.3 GF | x1.25

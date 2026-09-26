@@ -1,0 +1,74 @@
+# 2026-09-26T03:21:18Z macOS 27.0, Now drawing from AC Power; SME check before run: FMOPA 1-thr 2.25 TF, vDSP N=4096 209 GF (uncontended)
+# top:  40.5 WindowServer
+# top:  18.5 avconferenced
+# top:  13.4 VTEncoderXPCService
+# top:  11.1 AppleCentauriAlpha
+m6-sar: Range-Doppler SAR, 4096 pulses x 4096 range samples, split fp32 planes (128 MiB per complex image)
+  L-band 0.240 m, B 100 MHz, fs 120 MHz, v 200 m/s, PRF 500 Hz, antenna 8 m
+  synthetic aperture 600 m = 1499 pulses; max range migration 1.80 bins
+  theory (unweighted): IRW rg 1.06 bins, az 8.86 bins; PSLR -13.26 dB
+  simulated in 0.25 s
+
+CPU reference (vDSP, 1 thread; RCMC loop 12 threads, double phase):
+  range compress 23.7 | transpose 17.7 | az FFT 5.3 | RCMC+filter 55.0 | az IFFT 9.5 | total 111.2 ms (median of 3)
+  reference: target  expected(rg,az)   measured(rg,az)      IRW rg/az (bins)   PSLR rg/az (dB)
+     #0  (2048,2048)   ( 2048.00, 2048.00)     1.06 /  8.81     -13.20 / -13.47
+     #1  (2448,2048)   ( 2448.00, 2048.00)     1.06 /  8.81     -13.28 / -13.46
+     #2  (2048,2548)   ( 2048.00, 2548.00)     1.06 /  8.81     -13.16 / -13.48
+     #3  (1648,1548)   ( 1648.00, 1548.00)     1.06 /  8.94     -13.27 / -13.47
+     #4  (3048,1048)   ( 3048.00, 1048.00)     1.06 /  8.81     -13.29 / -13.46
+     #5  (1048,3048)   ( 1048.00, 3048.06)     1.06 /  8.81     -13.27 / -13.46
+  metric self-test (ideal sinc): IRW 1.06 bins, PSLR -13.29 dB
+  |ref| along range at target 0: 1008 1801 2464 2950 14515 2952 2534 1844 1060
+  diag: range compress GPU vs vDSP rel L2 4.32e-07
+  diag: az FFT GPU vs vDSP rel L2 3.67e-07
+  diag: RCMC+filter Doppler bin    0 (fa    0.00 Hz, shift   0.00 bins): rel L2 5.22e-17, energy 1.14e+04
+  diag: RCMC+filter Doppler bin    5 (fa    0.61 Hz, shift   0.00 bins): rel L2 4.22e-07, energy 5.84e+03
+  diag: RCMC+filter Doppler bin   25 (fa    3.05 Hz, shift   0.03 bins): rel L2 5.43e-07, energy 1.11e+04
+  diag: RCMC+filter Doppler bin   60 (fa    7.32 Hz, shift   0.15 bins): rel L2 3.11e-07, energy 6.71e+03
+  diag: RCMC+filter Doppler bin  200 (fa   24.41 Hz, shift   1.72 bins): rel L2 4.62e-07, energy 2.15e+03
+  diag: RCMC+filter Doppler bin 1000 (fa  122.07 Hz, shift  43.06 bins): rel L2 1.19e-05, energy 2.32e+01
+  diag: RCMC+filter Doppler bin 2048 (fa -250.00 Hz, shift 182.96 bins): rel L2 1.20e-05, energy 2.33e+01
+  diag: RCMC+filter Doppler bin 3000 (fa -133.79 Hz, shift  51.76 bins): rel L2 3.56e-06, energy 2.41e+01
+  diag: RCMC+filter Doppler bin 4090 (fa   -0.73 Hz, shift   0.00 bins): rel L2 4.96e-07, energy 7.87e+03
+
+GPU pipeline (4 dispatches, 1 command buffer; GPU time, median of 7):
+  range compress 1.82 | transpose 1.90 | az FFT 1.85 | RCMC+filter+IFFT 2.84 | total 9.09 ms  (12.2x CPU ref)
+  effective 118 GB/s per pass (4 passes x 256 MiB); DRAM-bound estimate at 150 GB/s: 7.16 ms
+  rel L2 vs reference: whole image 2.87e-06, 64x64 around targets 4.50e-07
+  GPU: target  expected(rg,az)   measured(rg,az)      IRW rg/az (bins)   PSLR rg/az (dB)
+     #0  (2048,2048)   ( 2048.00, 2048.00)     1.06 /  8.81     -13.20 / -13.47
+     #1  (2448,2048)   ( 2448.00, 2048.00)     1.06 /  8.81     -13.28 / -13.46
+     #2  (2048,2548)   ( 2048.00, 2548.00)     1.06 /  8.81     -13.16 / -13.48
+     #3  (1648,1548)   ( 1648.00, 1548.00)     1.06 /  8.94     -13.27 / -13.47
+     #4  (3048,1048)   ( 3048.00, 1048.00)     1.06 /  8.81     -13.29 / -13.46
+     #5  (1048,3048)   ( 1048.00, 3048.06)     1.06 /  8.81     -13.27 / -13.46
+
+GPU pipeline, fp16 intermediates: range compress 1.46 | transpose 1.02 | az FFT 0.94 | RCMC+filter+IFFT 2.33 | total 5.82 ms (19.1x CPU ref, 1.56x fp32 GPU)
+  bytes 40/point (vs 64): floor 4.47 ms at 150 GB/s; rel L2 vs reference: whole image 2.87e-04, around targets 3.35e-05
+  GPU fp16: target  expected(rg,az)   measured(rg,az)      IRW rg/az (bins)   PSLR rg/az (dB)
+     #0  (2048,2048)   ( 2048.00, 2048.00)     1.06 /  8.81     -13.20 / -13.47
+     #1  (2448,2048)   ( 2448.00, 2048.00)     1.06 /  8.81     -13.28 / -13.46
+     #2  (2048,2548)   ( 2048.00, 2548.00)     1.06 /  8.81     -13.17 / -13.48
+     #3  (1648,1548)   ( 1648.00, 1548.00)     1.06 /  8.94     -13.27 / -13.47
+     #4  (3048,1048)   ( 3048.00, 1048.00)     1.06 /  8.81     -13.29 / -13.46
+     #5  (1048,3048)   ( 1048.00, 3048.06)     1.06 /  8.81     -13.27 / -13.46
+GPU 3-pass variant (azimuth FFT reads columns directly): az FFT 3.26 | total 8.40 ms (13.2x CPU ref); floor 3 x 256 MiB at 150 GB/s = 5.37 ms; rel L2 2.87e-06
+
+Hybrid pipeline (GPU rows + SME2 columns, no transpose; wall clock incl. sync, median of 7):
+  SME threads 1: GPU range compress 2.30 | SME az FFT 10.02 | GPU RCMC+filter 2.40 | SME az IFFT 10.07 | total 24.94 ms
+  SME threads 2: GPU range compress 2.23 | SME az FFT 10.75 | GPU RCMC+filter 2.39 | SME az IFFT 10.57 | total 25.85 ms
+  rel L2 vs reference: whole image 2.84e-06, 64x64 around targets 3.17e-07
+  hybrid: target  expected(rg,az)   measured(rg,az)      IRW rg/az (bins)   PSLR rg/az (dB)
+     #0  (2048,2048)   ( 2048.00, 2048.00)     1.06 /  8.81     -13.20 / -13.47
+     #1  (2448,2048)   ( 2448.00, 2048.00)     1.06 /  8.81     -13.28 / -13.46
+     #2  (2048,2548)   ( 2048.00, 2548.00)     1.06 /  8.81     -13.16 / -13.48
+     #3  (1648,1548)   ( 1648.00, 1548.00)     1.06 /  8.94     -13.27 / -13.47
+     #4  (3048,1048)   ( 3048.00, 1048.00)     1.06 /  8.81     -13.29 / -13.46
+     #5  (1048,3048)   ( 1048.00, 3048.06)     1.06 /  8.81     -13.27 / -13.46
+
+Azimuth FFT alone: GPU transpose + row FFT 3.75 ms; SME column FFT (1 thr) see above; vDSP transpose + rows 22.9 ms
+
+Co-scheduling (2.0 s windows; GPU = full 4-pass SAR scenes, SME = 4096-column FFT images, 256 MiB traffic each):
+  alone:      GPU 112.6 scenes/s (121 GB/s) | SME 114.8 images/s (31 GB/s)
+  concurrent: GPU 101.3 scenes/s (109 GB/s) | SME 39.5 images/s (11 GB/s) | total 119 GB/s

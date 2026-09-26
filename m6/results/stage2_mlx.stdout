@@ -1,0 +1,50 @@
+MLX 0.29.3  device Device(gpu, 0)
+mlx N=      32 L2   B=  2048     1.00 MiB | hot     12.8 GF | cold      7.8 GF | relL2 1.2e-07
+mlx N=      32 SLC  B= 16384     8.00 MiB | hot     82.2 GF | cold     54.8 GF | relL2 1.2e-07
+mlx N=      32 DRAM B=524288   256.00 MiB | hot    215.1 GF | cold    213.1 GF | relL2 1.2e-07
+mlx N=      64 L2   B=  1024     1.00 MiB | hot     17.5 GF | cold     11.3 GF | relL2 1.3e-07
+mlx N=      64 SLC  B=  8192     8.00 MiB | hot     99.5 GF | cold     64.1 GF | relL2 1.2e-07
+mlx N=      64 DRAM B=262144   256.00 MiB | hot    245.2 GF | cold    251.1 GF | relL2 1.4e-07
+mlx N=     128 L2   B=   512     1.00 MiB | hot     18.2 GF | cold     12.0 GF | relL2 1.6e-07
+mlx N=     128 SLC  B=  4096     8.00 MiB | hot    117.4 GF | cold     77.3 GF | relL2 1.6e-07
+mlx N=     128 DRAM B=131072   256.00 MiB | hot    300.0 GF | cold    298.4 GF | relL2 1.6e-07
+mlx N=     256 L2   B=   256     1.00 MiB | hot     22.5 GF | cold     14.5 GF | relL2 1.7e-07
+mlx N=     256 SLC  B=  2048     8.00 MiB | hot    133.1 GF | cold     86.4 GF | relL2 1.7e-07
+mlx N=     256 DRAM B= 65536   256.00 MiB | hot    342.5 GF | cold    340.2 GF | relL2 1.7e-07
+mlx N=     512 L2   B=   128     1.00 MiB | hot     25.4 GF | cold     16.1 GF | relL2 2.6e-07
+mlx N=     512 SLC  B=  1024     8.00 MiB | hot    145.2 GF | cold     98.2 GF | relL2 2.6e-07
+mlx N=     512 DRAM B= 32768   256.00 MiB | hot    386.3 GF | cold    382.0 GF | relL2 2.6e-07
+mlx N=    1024 L2   B=    64     1.00 MiB | hot     28.1 GF | cold     17.8 GF | relL2 3.0e-07
+mlx N=    1024 SLC  B=   512     8.00 MiB | hot    162.3 GF | cold    107.7 GF | relL2 2.9e-07
+mlx N=    1024 DRAM B= 16384   256.00 MiB | hot    429.4 GF | cold    426.1 GF | relL2 2.9e-07
+mlx N=    2048 L2   B=    32     1.00 MiB | hot     29.9 GF | cold     18.3 GF | relL2 3.4e-07
+mlx N=    2048 SLC  B=   256     8.00 MiB | hot    176.3 GF | cold    115.6 GF | relL2 3.4e-07
+mlx N=    2048 DRAM B=  8192   256.00 MiB | hot    470.0 GF | cold    469.4 GF | relL2 3.4e-07
+mlx N=    4096 L2   B=    16     1.00 MiB | hot     32.8 GF | cold     21.8 GF | relL2 3.4e-07
+mlx N=    4096 SLC  B=   128     8.00 MiB | hot    177.8 GF | cold    123.6 GF | relL2 3.5e-07
+mlx N=    4096 DRAM B=  4096   256.00 MiB | hot    507.0 GF | cold    506.6 GF | relL2 3.4e-07
+mlx N=    8192 L2   B=     8     1.00 MiB | hot     30.2 GF | cold     24.1 GF | relL2 2.7e-07
+mlx N=    8192 SLC  B=    64     8.00 MiB | hot    165.2 GF | cold    122.5 GF | relL2 2.7e-07
+mlx N=    8192 DRAM B=  2048   256.00 MiB | hot    210.8 GF | cold    212.6 GF | relL2 2.7e-07
+mlx N=   16384 L2   B=     4     1.00 MiB | hot     33.1 GF | cold     23.9 GF | relL2 2.8e-07
+mlx N=   16384 SLC  B=    32     8.00 MiB | hot    174.3 GF | cold    129.6 GF | relL2 2.8e-07
+mlx N=   16384 DRAM B=  1024   256.00 MiB | hot    231.7 GF | cold    231.7 GF | relL2 2.8e-07
+mlx N=   32768 L2   B=     2     1.00 MiB | hot     34.9 GF | cold     25.8 GF | relL2 3.5e-07
+mlx N=   32768 SLC  B=    16     8.00 MiB | hot    184.3 GF | cold    138.2 GF | relL2 3.5e-07
+mlx N=   32768 DRAM B=   512   256.00 MiB | hot    240.4 GF | cold    239.4 GF | relL2 3.5e-07
+mlx N=   65536 L2   B=     1     1.00 MiB | hot     33.6 GF | cold     26.2 GF | relL2 3.8e-07
+mlx N=   65536 SLC  B=     8     8.00 MiB | hot    180.3 GF | cold    136.7 GF | relL2 3.8e-07
+mlx N=   65536 DRAM B=   256   256.00 MiB | hot    251.7 GF | cold    269.1 GF | relL2 3.8e-07
+mlx N=  131072 L2   B=     1     2.00 MiB | hot     67.0 GF | cold     47.7 GF | relL2 4.1e-07
+mlx N=  131072 SLC  B=     4     8.00 MiB | hot    188.0 GF | cold    147.5 GF | relL2 4.0e-07
+mlx N=  131072 DRAM B=   128   256.00 MiB | hot    285.3 GF | cold    294.6 GF | relL2 4.0e-07
+mlx N=  262144 L2   B=     1     4.00 MiB | hot    123.6 GF | cold     90.7 GF | relL2 4.1e-07
+mlx N=  262144 SLC  B=     2     8.00 MiB | hot    200.7 GF | cold    152.0 GF | relL2 4.1e-07
+mlx N=  262144 DRAM B=    64   256.00 MiB | hot    307.2 GF | cold    315.3 GF | relL2 4.1e-07
+mlx N=  524288 L2   B=     1     8.00 MiB | hot    203.3 GF | cold    155.2 GF | relL2 4.7e-07
+mlx N=  524288 SLC  B=     1     8.00 MiB | hot    205.5 GF | cold    155.4 GF | relL2 4.7e-07
+mlx N=  524288 DRAM B=    32   256.00 MiB | hot    316.6 GF | cold    317.9 GF | relL2 4.7e-07
+mlx N= 1048576 L2   B=     1    16.00 MiB | hot    246.9 GF | cold    237.0 GF | relL2 4.9e-07
+mlx N= 1048576 SLC  B=     1    16.00 MiB | hot    253.8 GF | cold    262.9 GF | relL2 4.9e-07
+mlx N= 1048576 DRAM B=    16   256.00 MiB | hot    323.5 GF | cold    338.9 GF | relL2 4.9e-07
+CSV -> results/stage2_mlx.csv

@@ -1,0 +1,16 @@
+# 2026-09-26T00:21:56Z 27.0 Now drawing from AC Power ; build: clang -O3 -mcpu=apple-m4
+# top:  16.3 sysmond
+# top:   8.2 Claude
+col: column FFTs of an N x W row-major split-complex matrix, out-of-place, 1 thread UI
+  N=    64 W=   16 (    0.0 MiB) err 1.3e-07 | SME cols   194.6 GF | vDSP fftm strided    85.7 GF | vDSP T+fftm+T    51.4 GF | x2.27 x3.79
+  N=    64 W=  256 (    0.1 MiB) err 1.3e-07 | SME cols   271.8 GF | vDSP fftm strided    53.1 GF | vDSP T+fftm+T    39.2 GF | x5.12 x6.93
+  N=    64 W=524288 (  256.0 MiB) err 1.3e-07 | SME cols    63.6 GF | vDSP fftm strided    36.5 GF | vDSP T+fftm+T    12.4 GF | x1.74 x5.14
+  N=   512 W=   16 (    0.1 MiB) err 1.8e-07 | SME cols   214.6 GF | vDSP fftm strided    89.0 GF | vDSP T+fftm+T    62.6 GF | x2.41 x3.43
+  N=   512 W=  256 (    1.0 MiB) err 1.8e-07 | SME cols   263.4 GF | vDSP fftm strided    23.2 GF | vDSP T+fftm+T    49.6 GF | x11.34 x5.32
+  N=   512 W=65536 (  256.0 MiB) err 1.8e-07 | SME cols    97.0 GF | vDSP fftm strided    26.0 GF | vDSP T+fftm+T    21.0 GF | x3.73 x4.62
+  N=  4096 W=   16 (    0.5 MiB) err 2.1e-07 | SME cols   196.9 GF | vDSP fftm strided    40.4 GF | vDSP T+fftm+T    62.7 GF | x4.87 x3.14
+  N=  4096 W=  256 (    8.0 MiB) err 2.1e-07 | SME cols   215.7 GF | vDSP fftm strided    46.3 GF | vDSP T+fftm+T    55.7 GF | x4.66 x3.87
+  N=  4096 W= 8192 (  256.0 MiB) err 2.1e-07 | SME cols   115.4 GF | vDSP fftm strided    42.8 GF | vDSP T+fftm+T    28.3 GF | x2.70 x4.08
+  N= 32768 W=   16 (    4.0 MiB) err 2.5e-07 | SME cols    98.8 GF | vDSP fftm strided    28.7 GF | vDSP T+fftm+T    68.2 GF | x3.44 x1.45
+  N= 32768 W=  256 (   64.0 MiB) err 2.5e-07 | SME cols    83.3 GF | vDSP fftm strided    28.8 GF | vDSP T+fftm+T    38.7 GF | x2.89 x2.15
+  N= 32768 W= 1024 (  256.0 MiB) err 2.5e-07 | SME cols    81.7 GF | vDSP fftm strided    30.1 GF | vDSP T+fftm+T    29.8 GF | x2.72 x2.75

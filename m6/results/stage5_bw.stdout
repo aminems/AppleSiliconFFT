@@ -1,0 +1,18 @@
+# 2026-09-26T00:21:50Z 27.0 Now drawing from AC Power ; build: clang -O3 -mcpu=apple-m4
+# top:   5.2 sysmond
+# top:   2.8 WindowServer
+bw: streaming-mode SVL=512 access, 1 thread UI, median of 7 (GB/s; ldst counts ld+st bytes)
+       bytes      load   zastore ld+mopa+st
+       65536      71.3     284.9     298.4
+      131072      71.5     285.1     304.2
+      262144      71.3     285.4     260.9
+      524288      71.5     286.2     257.2
+     1048576      71.5     286.4     242.1
+     2097152      71.6     286.4     120.8
+     4194304      71.4     285.6     122.1
+     8388608      71.5     234.1     121.2
+    16777216      71.2     185.7     121.6
+    33554432      71.0      79.9      93.4
+    67108864      71.1      76.5      90.6
+   134217728      71.0      76.2      90.5
+   268435456      71.2      74.6      89.6

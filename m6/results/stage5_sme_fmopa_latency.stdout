@@ -1,0 +1,6 @@
+# 2026-09-26T00:24:54Z quiet machine, AC
+1 tile : 562 GF, 0.91 ns/fmopa
+2 tiles: 1145 GF
+4 tiles: 2287 GF
+4 tiles f16->f32 widening: 2289 GF
+fmla vgx4 x16 groups: 286 GF

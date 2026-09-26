@@ -1,0 +1,79 @@
+  [PASS] forward fft8_dx_r8                 L2 = 5.460e-08 (tol 1e-05)
+  [PASS] forward fft64_dx_r8                L2 = 2.142e-07 (tol 1e-05)
+  [PASS] forward fft256_dx_r4               L2 = 2.020e-07 (tol 1e-05)
+  [PASS] forward fft4096_dx                 L2 = 3.570e-07 (tol 1e-05)
+  [PASS] forward fft4096_dx_r4              L2 = 2.715e-07 (tol 1e-05)
+  [PASS] forward fft4096_dx_r16             L2 = 5.650e-07 (tol 1e-04)
+
+-- IFFT / convolution / fp16 --
+  [PASS] IFFT(FFT(x))==x  (4096)            L2 = 4.276e-07 (tol 1e-05)
+  [PASS] convolve range_compression_dx      L2 = 4.676e-07 (tol 1e-05)
+  [PASS] fp16-storage SQNR (4096)           dB = 66.8 (min 55)
+
+----------------------------------------------------------------------
+  10 passed, 0 failed
+======================================================================
+====================================================================================
+Device: Apple M6  | primitive maxThreads/TG=1024, baseline=1024
+(both dispatch 512 thr/TG, 32 KiB tgmem => 1 TG/core; occupancy identical by construction)
+
+           pass A = primitive-first           pass B = baseline-first
+  Batch | primGF  baseGF  ratio(med/best) | primGF  baseGF  ratio(med/best)
+  --------------------------------------------------------------------------
+     16 |  255.1   510.1  0.500/0.474 |  561.7   542.4  1.036/1.006
+     64 |  905.2  1031.4  0.878/1.061 | 1078.5  1031.4  1.046/1.065
+    256 | 1118.5  1018.2  1.099/1.080 | 1034.2  1016.8  1.017/1.009
+   1024 |  597.7   597.6  1.000/1.004 |  601.1   600.1  1.002/1.003
+   4096 |  569.4   569.8  0.999/0.997 |  568.9   569.1  1.000/0.999
+
+Read: if ratio>1 in BOTH passes and at best-of, the gain is real (ILP/scheduling).
+      if it flips between pass A and B, it is an ordering/ramp artifact.
+====================================================================================
+========================================================================
+vDSP FFT Baseline Benchmark (vDSP_fft_zop)
+========================================================================
+
+  N         | Batch=1                | Batch=16               | Batch=64               | Batch=256              | Batch=1024           
+            |   us/FFT   GFLOPS    |   us/FFT   GFLOPS    |   us/FFT   GFLOPS    |   us/FFT   GFLOPS    |   us/FFT   GFLOPS  
+  --------------------------------------------------------------------------------------------------------------------------------
+  256       |     0.17    61.44    |     0.15    70.22    |     0.14    71.17    |     0.13    78.74    |     0.12    86.07  
+  512       |     0.17   138.24    |     0.16   142.70    |     0.16   141.56    |     0.16   142.70    |     0.16   142.56  
+  1024      |     0.29   175.54    |     0.27   190.88    |     0.27   190.88    |     0.27   190.88    |     0.27   190.82  
+  2048      |     0.71   159.02    |     0.64   176.55    |     0.64   176.01    |     0.64   176.64    |     0.77   145.97  
+  4096      |     1.33   184.32    |     1.17   209.25    |     1.18   209.02    |     1.18   208.38    |     1.47   166.62  
+  8192      |     4.00   133.12    |     3.92   135.77    |     3.97   134.26    |     4.77   111.56    |     4.86   109.51  
+  16384     |     7.96   144.11    |     7.93   144.58    |     8.00   143.36    |    10.19   112.55    |    10.04   114.24  
+
+-- Detailed: N=4096 --
+
+  Batch     Total (us)   Per FFT (us)       GFLOPS
+  ----------------------------------------------------
+  1                 1.21          1.21        203.39
+  16               18.75          1.17        209.72
+  64               75.21          1.18        209.13
+  256             301.08          1.18        208.96
+  1024           1511.83          1.48        166.46
+
+========================================================================
+Notes:
+  FLOP count: 5 * N * log2(N) per complex FFT (standard estimate)
+  Times are median of 20 trials after 5 warmup iterations
+  vDSP_fft_zop: out-of-place, forward FFT, split complex format
+========================================================================
+========================================================================
+All benchmarks complete.
+
+To run individual benchmarks:
+  swift run FFTMicroBenchmarks 1          # Threadgroup memory bandwidth
+  swift run FFTMicroBenchmarks 2          # SIMD shuffle throughput
+  swift run FFTMicroBenchmarks 3          # Register-to-threadgroup copy
+  swift run FFTMicroBenchmarks 4          # Occupancy vs register pressure
+  swift run FFTMicroBenchmarks 5          # Optimal thread count sweep
+  swift run FFTMicroBenchmarks 6          # vDSP FFT baseline
+  swift run FFTMicroBenchmarks vdsp       # Same as 6
+  swift run FFTMicroBenchmarks 7          # Direct-matmul DFT (cblas_cgemm)
+  swift run FFTMicroBenchmarks 8          # Radix-8 cblas_sgemm (AMX route)
+  swift run FFTMicroBenchmarks amx-radix8 # Same as 8
+  swift run FFTMicroBenchmarks tgmem      # Same as 1
+  swift run FFTMicroBenchmarks shuffle     # Same as 2
+========================================================================

@@ -1,0 +1,12 @@
+# 2026-09-26T00:21:51Z 27.0 Now drawing from AC Power ; build: clang -O3 -mcpu=apple-m4
+# top:  82.6 knowledgeconstructiond
+# top:   8.5 AppleCentauriAlpha
+fft: 1 thread UI; GFLOPS = 5 N log2 N / t; median of trials; hot = batch fits L2
+  N=    64 B=    16 (   0.0 MiB) err 1.2e-07 | SME-CG  252.2 | SME-Stockham  242.7 | SME-CG+pack  126.0 | vDSP   71.5 GF | CG/vDSP x3.52, +pack x1.76
+  N=    64 B=524288 ( 256.0 MiB) err 1.2e-07 | SME-CG  220.1 | SME-Stockham  226.5 | SME-CG+pack   84.7 | vDSP   64.8 GF | CG/vDSP x3.40, +pack x1.31
+  N=   512 B=    16 (   0.1 MiB) err 1.8e-07 | SME-CG  254.6 | SME-Stockham  180.3 | SME-CG+pack  126.7 | vDSP  142.4 GF | CG/vDSP x1.79, +pack x0.89
+  N=   512 B= 65536 ( 256.0 MiB) err 1.9e-07 | SME-CG  152.0 | SME-Stockham  119.4 | SME-CG+pack   90.2 | vDSP  103.4 GF | CG/vDSP x1.47, +pack x0.87
+  N=  4096 B=    16 (   0.5 MiB) err 2.0e-07 | SME-CG  306.9 | SME-Stockham  161.2 | SME-CG+pack  127.0 | vDSP  205.6 GF | CG/vDSP x1.49, +pack x0.62
+  N=  4096 B=  8192 ( 256.0 MiB) err 2.0e-07 | SME-CG  198.1 | SME-Stockham  122.7 | SME-CG+pack   83.4 | vDSP  163.5 GF | CG/vDSP x1.21, +pack x0.51
+  N= 32768 B=    16 (   4.0 MiB) err 2.4e-07 | SME-CG  242.7 | SME-Stockham  122.6 | SME-CG+pack  102.4 | vDSP  140.2 GF | CG/vDSP x1.73, +pack x0.73
+  N= 32768 B=  1024 ( 256.0 MiB) err 2.4e-07 | SME-CG  186.9 | SME-Stockham  103.6 | SME-CG+pack   79.0 | vDSP  112.8 GF | CG/vDSP x1.66, +pack x0.70

@@ -16,6 +16,12 @@ High-performance FFT on Apple Silicon GPUs (Metal compute shaders) with applicat
 
 Kernel-fused SAR Range-Doppler algorithm, **22x speedup** over unfused baseline.
 
+### FFT on Apple M6
+
+> M. A. Bergach, "Bandwidth, Not FLOPS: FFT Kernels, Matrix Units and SAR Imaging on Apple M6," 2026.
+
+On M6, FFT speed is set by memory traffic, not arithmetic. One-pass N=8192/16384 kernels run **2.2x / 1.85x faster than MPSGraph** (4.4x with FP16 storage), a radix-8 FFT on the CPU's SME2 matrix unit beats vDSP by **up to 5.3x**, and a validated 4096x4096 range-Doppler SAR image takes **8.1 ms** on the GPU (6.0 ms with FP16 intermediates). Paper, kernels, benchmark harness and raw results: [`m6/`](m6/).
+
 ### Paper 3: Quaternion Spectral DNA Analysis
 
 > M. A. Bergach, "Quaternion Spectral Fingerprinting of DNA: GPU-Accelerated Multi-Channel Fourier Analysis for Alignment-Free Genomics," 2026. [bioRxiv preprint]
@@ -179,6 +185,8 @@ benchmarks/
     main.swift                 -- Benchmark runner
     utils.swift                -- Benchmark utilities
   Makefile                     -- Build with: make && make run
+m6/                            -- Apple M6 paper: paper, one-pass/SAR/tensor Metal kernels,
+                                  SME2 CPU FFT, benchmark harness, raw results (m6/README.md)
 ```
 
 ## Building
@@ -207,6 +215,13 @@ swift build --product PfGenomeWide
          via Single-Dispatch FFT Pipelines},
   author={Bergach, Mohamed Amine},
   year={2026}
+}
+
+@misc{bergach2026m6,
+  title={Bandwidth, Not FLOPS: FFT Kernels, Matrix Units and SAR Imaging on Apple M6},
+  author={Bergach, Mohamed Amine},
+  year={2026},
+  note={Preprint}
 }
 ```
 

@@ -1,0 +1,319 @@
+% IEEEtran.bst control: print repeated author names in full (no "------" dash).
+@IEEEtranBSTCTL{IEEEexample:BSTcontrol,
+  CTLdash_repeated_names = "no",
+}
+
+@phdthesis{bergach2015thesis,
+  author       = {Mohamed Amine Bergach},
+  title        = {Adaptation du calcul de la Transform\'{e}e de {Fourier} Rapide
+                  sur une architecture mixte {CPU}/{GPU} int\'{e}gr\'{e}e},
+  school       = {Universit\'{e} Nice Sophia Antipolis},
+  year         = {2015},
+  note         = {{In} {French}},
+  url          = {https://theses.hal.science/tel-01245958},
+}
+
+@article{bergach2015conference,
+  author       = {Mohamed Amine Bergach and Emilien Kofman and Robert de Simone
+                  and Serge Tissot and Michel Syska},
+  title        = {Efficient {FFT} mapping on {GPU} for radar processing
+                  application: modeling and implementation},
+  journal      = {arXiv preprint arXiv:1505.08067},
+  year         = {2015},
+  url          = {https://arxiv.org/abs/1505.08067},
+}
+
+@article{bergach2026fft,
+  author       = {Mohamed Amine Bergach},
+  title        = {Beating {vDSP}: A 138~{GFLOPS} Radix-8 {Stockham} {FFT} on
+                  {Apple Silicon} via Two-Tier Register-Threadgroup Memory
+                  Decomposition},
+  journal      = {arXiv preprint arXiv:2603.27569},
+  year         = {2026},
+}
+
+@article{cooley1965fft,
+  author       = {James W. Cooley and John W. Tukey},
+  title        = {An Algorithm for the Machine Calculation of Complex
+                  {Fourier} Series},
+  journal      = {Mathematics of Computation},
+  volume       = {19},
+  number       = {90},
+  pages        = {297--301},
+  year         = {1965},
+}
+
+@book{vanloan1992fft,
+  author       = {Charles F. {Van Loan}},
+  title        = {Computational Frameworks for the Fast {Fourier} Transform},
+  series       = {Frontiers in Applied Mathematics},
+  number       = {10},
+  publisher    = {SIAM},
+  year         = {1992},
+}
+
+@article{frigo2005fftw,
+  author       = {Matteo Frigo and Steven G. Johnson},
+  title        = {The Design and Implementation of {FFTW3}},
+  journal      = {Proceedings of the IEEE},
+  volume       = {93},
+  number       = {2},
+  pages        = {216--231},
+  year         = {2005},
+  doi          = {10.1109/JPROC.2004.840301},
+}
+
+@inproceedings{govindaraju2008fft,
+  author       = {Naga K. Govindaraju and Brandon Lloyd and Yuri Dotsenko
+                  and Burton Smith and John Manferdelli},
+  title        = {High Performance Discrete {Fourier} Transforms on Graphics
+                  Processors},
+  booktitle    = {Proceedings of the ACM/IEEE Conference on Supercomputing (SC)},
+  year         = {2008},
+  doi          = {10.1109/SC.2008.5213922},
+}
+
+@article{tolmachev2023vkfft,
+  author       = {Dmitrii Tolmachev},
+  title        = {{VkFFT} -- A Performant, Cross-Platform and Open-Source
+                  {GPU} {FFT} Library},
+  journal      = {IEEE Access},
+  volume       = {11},
+  pages        = {12039--12058},
+  year         = {2023},
+  doi          = {10.1109/ACCESS.2023.3242240},
+}
+
+@misc{vkfft_github,
+  author       = {Dmitrii Tolmachev},
+  title        = {{VkFFT}: {Vulkan}/{CUDA}/{HIP}/{OpenCL}/{Level Zero}/{Metal}
+                  Fast {Fourier} Transform Library},
+  year         = {2020},
+  howpublished = {GitHub repository},
+  url          = {https://github.com/DTolm/VkFFT},
+  note         = {MIT License},
+}
+
+@misc{apple_vdsp_fft,
+  author       = {{Apple Inc.}},
+  title        = {{vDSP} Fast {Fourier} Transforms ({Accelerate} Framework)},
+  howpublished = {Apple Developer Documentation},
+  note         = {{Accessed} Sep.\ 2026},
+  url          = {https://developer.apple.com/documentation/accelerate/vdsp/fft},
+}
+
+@manual{apple_metal_feature_tables,
+  author       = {{Apple Inc.}},
+  title        = {Metal Feature Set Tables},
+  year         = {2024},
+  url          = {https://developer.apple.com/metal/Metal-Feature-Set-Tables.pdf},
+}
+
+@manual{apple_msl_spec,
+  author       = {{Apple Inc.}},
+  title        = {Metal Shading Language Specification, Version 4},
+  year         = {2024},
+  url          = {https://developer.apple.com/metal/Metal-Shading-Language-Specification.pdf},
+}
+
+@misc{corsix_amx,
+  author       = {Peter Cawley},
+  title        = {{Apple} {AMX} Instruction Set},
+  howpublished = {GitHub repository},
+  note         = {{Accessed} Sep.\ 2026},
+  url          = {https://github.com/corsix/amx},
+}
+
+@article{hubner2025apple,
+  author       = {Paul H{\"u}bner and Andong Hu and Ivy Peng and Stefano Markidis},
+  title        = {Apple vs.\ Oranges: Evaluating the {Apple Silicon} {M}-Series
+                  {SoCs} for {HPC} Performance and Efficiency},
+  journal      = {arXiv preprint arXiv:2502.05317},
+  year         = {2025},
+}
+
+@inproceedings{li2021tcfft,
+  author       = {Binrui Li and Shenggan Cheng and James Lin},
+  title        = {{tcFFT}: A Fast Half-Precision {FFT} Library for {NVIDIA}
+                  {Tensor Cores}},
+  booktitle    = {IEEE International Conference on Cluster Computing (CLUSTER)},
+  year         = {2021},
+}
+
+@manual{nvidia_cufft,
+  author       = {{NVIDIA Corporation}},
+  title        = {{cuFFT} Library User's Guide},
+  year         = {2024},
+  url          = {https://docs.nvidia.com/cuda/cufft/index.html},
+}
+
+@manual{nvidia_cufftdx,
+  author       = {{NVIDIA Corporation}},
+  title        = {{cuFFTDx} -- {CUDA} {FFT} Device Extensions},
+  year         = {2020},
+  url          = {https://docs.nvidia.com/cuda/cufftdx/index.html},
+}
+
+@book{cumming2005sar,
+  author       = {Ian G. Cumming and Frank H. Wong},
+  title        = {Digital Processing of Synthetic Aperture Radar Data:
+                  Algorithms and Implementation},
+  publisher    = {Artech House},
+  year         = {2005},
+}
+
+@book{higham2002accuracy,
+  author       = {Nicholas J. Higham},
+  title        = {Accuracy and Stability of Numerical Algorithms},
+  edition      = {2nd},
+  publisher    = {SIAM},
+  year         = {2002},
+}
+
+@inproceedings{wu2025turbofft,
+  author       = {Shixun Wu and Yujia Zhai and Jinyang Liu and Jiajun Huang
+                  and Zizhe Jian and Huangliang Dai and Sheng Di
+                  and Franck Cappello and Zizhong Chen},
+  title        = {{TurboFFT}: Co-Designed High-Performance and Fault-Tolerant
+                  Fast {Fourier} Transform on {GPUs}},
+  booktitle    = {Proceedings of the 30th ACM SIGPLAN Annual Symposium on
+                  Principles and Practice of Parallel Programming (PPoPP)},
+  year         = {2025},
+  doi          = {10.1145/3710848.3710853},
+}
+
+@misc{johnson_applegpu,
+  author       = {Dougall Johnson},
+  title        = {{Apple} {G13} {GPU} Architecture Reference},
+  howpublished = {Online documentation},
+  url          = {https://dougallj.github.io/applegpu/docs.html},
+}
+
+@article{bergach2026sar,
+  author       = {Mohamed Amine Bergach},
+  title        = {From 8 Seconds to 370~ms: Kernel-Fused {SAR} Imaging on
+                  {Apple Silicon} via Single-Dispatch {FFT} Pipelines},
+  journal      = {arXiv preprint arXiv:2604.03585},
+  year         = {2026},
+}
+
+@article{bergach2026fp16,
+  author       = {Mohamed Amine Bergach},
+  title        = {Range, Not Precision: Block-Floating-Point Half-Precision {FFT}
+                  and {SAR} Imaging on {Apple Silicon}},
+  journal      = {arXiv preprint arXiv:2605.28451},
+  year         = {2026},
+}
+
+@inproceedings{hong1981io,
+  author       = {Jia-Wei Hong and H. T. Kung},
+  title        = {{I/O} Complexity: The Red-Blue Pebble Game},
+  booktitle    = {Proceedings of the 13th Annual ACM Symposium on Theory of Computing (STOC)},
+  pages        = {326--333},
+  year         = {1981},
+}
+
+@article{williams2009roofline,
+  author       = {Samuel Williams and Andrew Waterman and David Patterson},
+  title        = {Roofline: An Insightful Visual Performance Model for Multicore Architectures},
+  journal      = {Communications of the ACM},
+  volume       = {52},
+  number       = {4},
+  pages        = {65--76},
+  year         = {2009},
+}
+
+@misc{apple_mpsgraph,
+  author       = {{Apple Inc.}},
+  title        = {{MPSGraph} Fast {Fourier} Transform ({Metal Performance
+                  Shaders Graph})},
+  howpublished = {Apple Developer Documentation},
+  note         = {{Accessed} Sep.\ 2026},
+  url          = {https://developer.apple.com/documentation/metalperformanceshadersgraph/mpsgraph},
+}
+
+@misc{mlx2023,
+  author       = {Awni Hannun and Jagrit Digani and Angelos Katharopoulos and
+                  Ronan Collobert},
+  title        = {{MLX}: Efficient and Flexible Machine Learning on {Apple Silicon}},
+  howpublished = {GitHub repository},
+  note         = {{Version} 0.29.3},
+  url          = {https://github.com/ml-explore/mlx},
+  year         = {2023},
+}
+
+@manual{arm_sme,
+  author       = {{Arm Ltd.}},
+  title        = {Arm Architecture Reference Manual for {A}-profile Architecture},
+  note         = {{Document} {DDI} 0487. Accessed Sep.\ 2026},
+  url          = {https://developer.arm.com/documentation/ddi0487/latest},
+}
+
+@inproceedings{bergach2014scaling,
+  author       = {Mohamed Amine Bergach and Serge Tissot and Michel Syska
+                  and Robert de Simone},
+  title        = {Scaling Performance of {FFT} Computation on an Industrial
+                  Integrated {GPU} Co-processor: Experiments with Algorithm
+                  Adaptation},
+  booktitle    = {DATE 2014 Friday Workshop -- 3PMCES},
+  year         = {2014},
+}
+
+@article{bergach2026butterfly,
+  author       = {Mohamed Amine Bergach},
+  title        = {Dual-Select {FMA} Butterfly for {FFT}: Eliminating Twiddle Factor
+                  Singularities with Bounded Precomputed Ratios},
+  journal      = {arXiv preprint arXiv:2604.00567},
+  year         = {2026},
+}
+
+@article{bergach2026shortest,
+  author       = {Mohamed Amine Bergach},
+  title        = {Shortest-Path {FFT}: Optimal {SIMD} Instruction Scheduling via
+                  Graph Search},
+  journal      = {arXiv preprint arXiv:2604.04311},
+  year         = {2026},
+}
+
+@article{bergach2026energy,
+  author       = {Mohamed Amine Bergach},
+  title        = {The Price of Remembering: A Calibrated Energy Law for Computation},
+  journal      = {arXiv preprint arXiv:2609.00744},
+  year         = {2026},
+}
+
+@article{bergach2026int4,
+  author       = {Mohamed Amine Bergach},
+  title        = {When Quantization Is Free: An int4 {KV} Cache That Outruns fp16
+                  on {Apple Silicon}},
+  journal      = {arXiv preprint arXiv:2605.05699},
+  year         = {2026},
+}
+
+@article{pease1968adaptation,
+  author       = {Marshall C. Pease},
+  title        = {An Adaptation of the Fast {Fourier} Transform for Parallel
+                  Processing},
+  journal      = {Journal of the ACM},
+  volume       = {15},
+  number       = {2},
+  pages        = {252--264},
+  year         = {1968},
+}
+
+@article{remke2024hellosme,
+  author       = {Stefan Remke and Alexander Breuer},
+  title        = {Hello {SME}! {Generating} Fast Matrix Multiplication Kernels
+                  Using the {Scalable Matrix Extension}},
+  journal      = {arXiv preprint arXiv:2409.18779},
+  year         = {2024},
+}
+
+@misc{applesiliconfft,
+  author       = {Mohamed Amine Bergach},
+  title        = {{AppleSiliconFFT}: {FFT} Kernels, Benchmarks and Data for
+                  {Apple Silicon}},
+  howpublished = {GitHub repository, MIT license},
+  url          = {https://github.com/aminems/AppleSiliconFFT},
+  year         = {2026},
+}

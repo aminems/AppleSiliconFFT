@@ -1,0 +1,23 @@
+# 2026-09-26T00:22:03Z 27.0 Now drawing from AC Power ; build: clang -O3 -mcpu=apple-m4
+# top:   7.4 WallpaperAerialsExtension
+# top:   6.9 WindowServer
+colmt: column FFTs (64-lane groups), T threads (UI QoS) split the columns; A/B interleaved, median of 7
+  N=  4096 W=   256 (   8.0 MiB) T= 1 | SME cols   236.7 GF | vDSP fftm strided    47.2 GF | x5.01
+  N=  4096 W=   256 (   8.0 MiB) T= 2 | SME cols   238.7 GF | vDSP fftm strided     3.9 GF | x60.68
+  N=  4096 W=   256 (   8.0 MiB) T= 3 | SME cols   158.9 GF | vDSP fftm strided     3.9 GF | x40.63
+  N=  4096 W=   256 (   8.0 MiB) T= 4 | SME cols   142.4 GF | vDSP fftm strided     7.3 GF | x19.57
+  N=  4096 W=  8192 ( 256.0 MiB) T= 1 | SME cols   117.7 GF | vDSP fftm strided    41.8 GF | x2.81
+  N=  4096 W=  8192 ( 256.0 MiB) T= 2 | SME cols   131.1 GF | vDSP fftm strided     1.0 GF | x128.37
+  N=  4096 W=  8192 ( 256.0 MiB) T= 3 | SME cols   135.5 GF | vDSP fftm strided     2.3 GF | x58.37
+  N=  4096 W=  8192 ( 256.0 MiB) T= 4 | SME cols   137.1 GF | vDSP fftm strided     2.0 GF | x67.47
+  N=  4096 W=  8192 ( 256.0 MiB) T= 6 | SME cols    95.9 GF | vDSP fftm strided     4.0 GF | x24.19
+  N=   512 W=  2048 (   8.0 MiB) T= 1 | SME cols   250.8 GF | vDSP fftm strided    25.0 GF | x10.02
+  N=   512 W=  2048 (   8.0 MiB) T= 2 | SME cols   246.2 GF | vDSP fftm strided     2.3 GF | x105.40
+  N=   512 W=  2048 (   8.0 MiB) T= 3 | SME cols   247.6 GF | vDSP fftm strided     3.3 GF | x74.51
+  N=   512 W=  2048 (   8.0 MiB) T= 4 | SME cols   251.4 GF | vDSP fftm strided     4.4 GF | x57.60
+  N=   512 W=  2048 (   8.0 MiB) T= 6 | SME cols   254.2 GF | vDSP fftm strided     5.2 GF | x48.79
+  N=   512 W= 65536 ( 256.0 MiB) T= 1 | SME cols    98.1 GF | vDSP fftm strided    24.6 GF | x3.98
+  N=   512 W= 65536 ( 256.0 MiB) T= 2 | SME cols   118.4 GF | vDSP fftm strided     1.0 GF | x113.38
+  N=   512 W= 65536 ( 256.0 MiB) T= 3 | SME cols   124.5 GF | vDSP fftm strided     2.6 GF | x47.20
+  N=   512 W= 65536 ( 256.0 MiB) T= 4 | SME cols   130.3 GF | vDSP fftm strided     2.8 GF | x46.97
+  N=   512 W= 65536 ( 256.0 MiB) T= 6 | SME cols   129.5 GF | vDSP fftm strided     3.5 GF | x36.49
